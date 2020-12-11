@@ -1,4 +1,3 @@
-const { captureRejectionSymbol } = require("events");
 const fs = require("fs");
 const file = fs.readFileSync("./binary_boarding.txt").toString("utf-8");
 const rows = file.split("\n");
