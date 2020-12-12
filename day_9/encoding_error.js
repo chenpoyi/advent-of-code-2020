@@ -9,7 +9,12 @@ const part_1 = function(){
       return rows[index];
     }
   }
+}
 
+const part_2 = function(){
+  const sum = part_1();
+  const numArray = rows.map(element => Number(element));
+  return checkContiguous(numArray, sum);
 }
 
 const checkSum = function(array, number){
@@ -21,4 +26,27 @@ const checkSum = function(array, number){
   return false;
 }
 
+const checkContiguous = function(array, number){
+  let sum = array[0] + array[1];
+  let start = 0;
+  let end = 1;
+  while(sum != number && end < array.length){
+    
+    if(number > sum){
+      end++;
+      sum += array[end];
+    } else if (number < sum){
+      sum -= array[start];
+      start++;
+    }
+
+  }
+ 
+
+  const subArray = array.slice(start, end + 1).sort((a,b) => a -b);
+
+  return subArray[0] + subArray[subArray.length - 1];
+}
+
 console.log(part_1())
+console.log(part_2())
