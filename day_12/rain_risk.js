@@ -15,10 +15,8 @@ const part_1 = function () {
     const value = Number(row.substring(1, row.length));
     return [direction, value];
   });
-  //console.log(parse);
 
   for (let instruction of parse) {
-    //console.log(instruction);
     switch (instruction[0]) {
       case "N":
         position.y += instruction[1];
@@ -64,9 +62,7 @@ const part_2 = function () {
   });
 
   for (let instruction of parse) {
-    console.log(instruction);
-    console.log(position);
-    console.log(waypoint);
+    
     let times = 0;
     switch (instruction[0]) {
       case "N":
@@ -130,5 +126,5 @@ const forward = function (position, steps) {
   return position;
 };
 
-// console.log(part_1());
+console.log(part_1());
 console.log(part_2());
